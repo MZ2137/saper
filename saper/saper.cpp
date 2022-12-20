@@ -8,9 +8,13 @@ const int MINES = 15;
 
 using namespace std;
 
-vector<vector<int>> generateBoard()
+int** generateBoard()
 {
-    vector<vector<int>> board(ROWS, vector<int>(COLUMNS, 0));
+    int** board = new int* [ROWS];
+    for (int i = 0; i < ROWS; i++)
+    {
+        board[i] = new int[COLUMNS];
+    }
 
     random_device rd;
     mt19937 rng(rd());
@@ -33,18 +37,16 @@ vector<vector<int>> generateBoard()
 
 int main()
 {
-    vector<vector<int>> board = generateBoard();
+    int** board = generateBoard();
 
-    /*
     for (int i = 0; i < ROWS; i++)
     {
         for (int j = 0; j < COLUMNS; j++)
         {
-            cout << board[i][j] << " ";
+           cout << board[i][j] << " ";
         }
         cout << endl;
     }
-    */
 
-    return EXIT_SUCCESS;
+    return 0;
 }
