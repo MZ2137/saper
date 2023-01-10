@@ -173,9 +173,9 @@ bool playMinesweeperUtil(char myBoard[][MAXSIDE], char realBoard[][MAXSIDE],
 
 		for (i = 0; i < MINES; i++)
 			myBoard[mines[i][0]][mines[i][1]] = '*';
-
+		system("cls");
 		printBoard(myBoard);
-		cout <<("\nYou lost!\n");
+		cout <<("\nPrzegrales!\n");
 		return (true);
 	}
 
@@ -339,7 +339,7 @@ void playMinesweeper()
 
 			if ((gameOver == false) && (movesLeft == 0))
 			{
-				cout << ("\nYou won !\n");
+				cout << ("\nWygrales!\n");
 				gameOver = true;
 			}
 		}
