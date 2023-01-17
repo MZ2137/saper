@@ -5,13 +5,14 @@ using namespace std;
 #define BEGINNER 0
 #define INTERMEDIATE 1
 #define ADVANCED 2
+#define CUSTOM 3
 #define MAXSIDE 25
 #define MAXMINES 99
 #define MOVESIZE 526 // (25 * 25 - 99)
 
 int SIDE; 
 int MINES; 
-bool flag[24][24];
+bool flag[100][100];
 
 using namespace std;
 
@@ -296,8 +297,6 @@ void replaceMine(int row, int col, char board[][MAXSIDE])
 }
 
 
-
-
 void playMinesweeper()
 {
 
@@ -358,9 +357,11 @@ void chooseDifficultyLevel()
 	int level;
 
 	cout <<("Enter the Difficulty Level\n");
-	cout <<("Press 0 for BEGINNER (9 X 9 Cells and 10 Mines)\n");
-	cout <<("Press 1 for INTERMEDIATE (16 X 16 Cells and 40 Mines)\n");
-	cout <<("Press 2 for ADVANCED (24 X 24 Cells and 99 Mines)\n");
+	cout <<("Press 0 for BEGINNER (9 X 9 Cells and 10 Mines, 12,3%)\n");
+	cout <<("Press 1 for INTERMEDIATE (16 X 16 Cells and 40 Mines, 15,6%)\n");
+	cout <<("Press 2 for ADVANCED (24 X 24 Cells and 99 Mines, 17,2%)\n");
+	cout <<("Press 3 for CUSTOM (A X A Cells and B Mines)\n");
+	cout << ("(Max size is 100x100, it is not recomended to exceed 20% mines density)\n");
 
 	cin >> level;
 
@@ -381,6 +382,14 @@ void chooseDifficultyLevel()
 		SIDE = 24;
 		MINES = 99;
 	}
+
+	if (level == CUSTOM)
+	{
+		cin >> SIDE;
+		cin >> MINES;
+	}
+
+
 }
 
 int main()
